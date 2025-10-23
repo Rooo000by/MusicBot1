@@ -1,7 +1,14 @@
 services:
   - type: web
     name: musicbot
-    env: docker
-    buildCommand: ./gradlew build
-    startCommand: java -jar build/libs/MusicBot.jar
+    env: native
     plan: free
+    buildCommand: mvn package -DskipTests
+    startCommand: java -jar target/JMusicBot-0.3.9.jar
+    envVars:
+      - key: TOKEN
+        value: your_discord_bot_token_here
+      - key: OWNER
+        value: your_discord_id_here
+      - key: PREFIX
+        value: !
