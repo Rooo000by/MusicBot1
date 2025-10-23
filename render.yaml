@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: musicbot
+    env: docker
+    buildCommand: ./gradlew build
+    startCommand: java -jar build/libs/MusicBot.jar
+    plan: free
